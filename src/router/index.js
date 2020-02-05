@@ -1,23 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/components/Main'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
+import Main from '@/components/Main'
+import Home from '@/components/Home'
+import Live from '@/components/Live'
+import Config from '@/components/Config'
 import firebase from 'firebase'
 
 Vue.use(Router)
 
 let router = new Router({
+  // mode: 'history',
   routes: [
     {
       path: '*',
       redirect: 'signin'
-    },
-    {
-      path: '/',
-      name: 'Main',
-      component: Main,
-      meta: { requiresAuth: false } //実装時必ずtrueにすること！！！
     },
     {
       path: '/signup',
@@ -28,7 +26,31 @@ let router = new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
-    }
+    },
+    {
+      path: '/',
+      name: 'Main',
+      component: Main,
+      // meta: { requiresAuth: true }, //実装時必ずtrueにすること！！！
+      children: [
+        {
+          path: '',
+          name: 'Home',
+          component: Home,
+          // meta: { requiresAuth: false }
+        },
+        {
+          path: '/live',
+          name: 'Live',
+          component: Live,
+        },
+        {
+          path: '/config',
+          name: 'Config',
+          component: Config,
+        }
+      ]
+    },
   ]
 })
 

@@ -13,7 +13,7 @@
       </div>
       <br><br>
       <button @click="signUp">新規登録</button>
-      <div class="border" /> OR <div class="border" />
+      <div class="border-line" /> OR <div class="border-line" />
       <button @click="goSignIn">ログイン画面に戻る</button>
     </div>
   </div>
@@ -114,10 +114,11 @@ input[type="email"],input[type="password"] {
 .inputWithIcon .i {
   position: absolute;
   left: 28%;
-  top: 8px;
+  top: 4px;
   padding: 4px 8px;
   color: #fff;
   transition: 0.3s;
+  font-size: 2.5rem
 }
 
 .inputWithIcon input[type="email"]:focus + .i{
@@ -152,7 +153,7 @@ button:hover{
   border-color: dodgerBlue;
 }
 
-.border{
+.border-line{
   border-top: 1px solid #ffffff;
   width: 475px;
   display: inline-block;

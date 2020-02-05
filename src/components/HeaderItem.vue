@@ -8,7 +8,7 @@
     <nav id="header-nav">
       <ul>
         <router-link tag="li" id="home-nav" to="/" exact>
-          <a id="active">ホーム</a>
+          <a>ホーム</a>
         </router-link>
         <router-link tag="li" id="live-nav" to="/live" exact>
           <a>ライブ</a>
@@ -48,6 +48,7 @@ header {
   color: #000;
   position: fixed;
   top: 0;
+  z-index: 1000;
 }
 img {
   float: left;
@@ -76,19 +77,29 @@ li:last-child {
   padding: 10px 30px;
   transition: 0.3s;
 }
+
 li:last-child:hover {
   background: #5cb0c5;
   color: white;
 }
+
 li a {
   text-decoration: none;
   color: #999;
   margin-right: 25px;
 }
+
 li a#active {
   color: #5cb0c5;
   font-weight: bolder;
 }
+
+.router-link-active {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  color: #5cb0c5;
+}
+
 li a:hover {
   color: #5cb0c5;
 }

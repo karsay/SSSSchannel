@@ -6,9 +6,6 @@ import App from './App'
 import router from './router'
 import firebase from 'firebase'
 
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -35,7 +32,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-/* eslint-disable no-new */
+/* eslint-disable */
 new Vue({
   el: '#app',
   router,
