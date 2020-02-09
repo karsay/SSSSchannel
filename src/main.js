@@ -32,7 +32,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-/* eslint-disable */
 new Vue({
   el: '#app',
   router,

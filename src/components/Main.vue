@@ -15,7 +15,7 @@ export default {
   name: "Main",
   components: {
     HeaderItem,
-    FooterItem,
+    FooterItem
   }
 };
 </script>
@@ -28,7 +28,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  background: #000;
   /* border: 3px red solid; */
-  margin-top: 80px;
+}
+
+body {
+  font-family: "SF Pro JP","SF Pro Text","SF Pro Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+  background: #000;
 }
 </style>

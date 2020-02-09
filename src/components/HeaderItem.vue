@@ -2,7 +2,7 @@
   <header id="header">
     <router-link tag="li" id="home-nav" to="/" exact>
       <a>
-        <img src="../../static/logo-kuro.png"/>
+        <img src="../../static/logo-kuro.png" />
       </a>
     </router-link>
     <nav id="header-nav">
@@ -20,7 +20,6 @@
       </ul>
     </nav>
   </header>
-
 </template>
 
 <script>
@@ -103,4 +102,5 @@ li a#active {
 li a:hover {
   color: #5cb0c5;
 }
+
 </style>

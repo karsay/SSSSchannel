@@ -40,8 +40,7 @@
 </template>
 
 <script>
-
-import firebase from 'firebase'
+import firebase from "firebase";
 
 export default {
   name: "HelloWorld",
@@ -53,15 +52,17 @@ export default {
   },
   methods: {
     signOut: function() {
-      firebase.auth().signOut().then(() => {
-        this.$router.push('/signin')
-      })
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push("/signin");
+        });
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1,
 h2 {

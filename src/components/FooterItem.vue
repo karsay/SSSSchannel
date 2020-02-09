@@ -1,51 +1,53 @@
 <template>
   <div id="footer-wrap">
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <span class="logo"><img src="/../../static/logo-kuro.png" width="200px"></span>
-        </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <span class="logo">
+              <img src="/../../static/logo-kuro.png" width="200px" />
+            </span>
+          </div>
 
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="menu">
-            <span>Navigation</span>
-            <router-link tag="li" id="home-nav" to="/" exact>
-              <a>Home</a>
-            </router-link>
-            <router-link tag="li" id="home-nav" to="/live" exact>
-              <a>Live</a>
-            </router-link>
-            <router-link tag="li" id="home-nav" to="/config" exact>
-              <a>Config</a>
-            </router-link>
-            <li @click="signOut">
-              <a>SignOut</a>
-            </li>
-          </ul>
-        </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="menu">
+              <span>Navigation</span>
+              <router-link tag="li" id="home-nav" to="/" exact>
+                <a>Home</a>
+              </router-link>
+              <router-link tag="li" id="home-nav" to="/live" exact>
+                <a>Live</a>
+              </router-link>
+              <router-link tag="li" id="home-nav" to="/config" exact>
+                <a>Config</a>
+              </router-link>
+              <li @click="signOut">
+                <a>SignOut</a>
+              </li>
+            </ul>
+          </div>
 
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="address">
-            <span>Contact</span>
-            <li>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              <a href="#">Phone</a>
-            </li>
-            <li>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <a href="#">Adress</a>
-            </li>
-            <li>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <a href="#">Email</a>
-            </li>
-          </ul>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="address">
+              <span>Contact</span>
+              <li>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <a href="#">Phone</a>
+              </li>
+              <li>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <a href="#">Adress</a>
+              </li>
+              <li>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <a href="#">Email</a>
+              </li>
+            </ul>
+          </div>
+          <p>copyright &copy; 2020 Ryuken Kashiwagi. All rights reserved.</p>
         </div>
-        <p>copyright &copy; 2020 Ryuken Kashiwagi. All rights reserved.</p>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
 </template>
 
@@ -67,16 +69,14 @@ export default {
 </script>
 
 <style scoped>
-
 #footer-wrap {
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
   margin-top: 30px;
 }
 
 footer {
-  background-color:#fafafa;
+  background-color: #fafafa;
   padding: 30px 0px;
   margin-top: auto;
 }
@@ -128,6 +128,6 @@ footer {
 p {
   color: #404040;
   font-size: 0.8rem;
-  margin-left: 800px
+  margin-left: 800px;
 }
 </style>

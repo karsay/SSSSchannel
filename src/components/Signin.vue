@@ -1,99 +1,105 @@
 <template>
   <div class="signin">
     <div class="login-wrap">
-      <img src="../../static/logo-siro.png" width="200px"><br>
+      <img src="../../static/logo-siro.png" width="200px" />
+      <br />
       <h2>ログイン</h2>
       <div class="inputWithIcon">
-        <input type="email" placeholder="メールアドレス" v-model="email">
-        <font-awesome-icon :icon="['far', 'envelope']" class="i"/>
+        <input type="email" placeholder="メールアドレス" v-model="email" />
+        <font-awesome-icon :icon="['far', 'envelope']" class="i" />
       </div>
       <div class="inputWithIcon">
-        <input type="password" placeholder="パスワード" v-model="password">
-        <font-awesome-icon :icon="['fas', 'lock']" class="i"/>
+        <input type="password" placeholder="パスワード" v-model="password" />
+        <font-awesome-icon :icon="['fas', 'lock']" class="i" />
       </div>
-      <br><br>
+      <br />
+      <br />
       <button @click="signIn">ログイン</button>
-      <div class="border-line" /> OR <div class="border-line" />
+      <div class="border-line" />OR
+      <div class="border-line" />
       <button @click="goSignUp">新規登録</button>
     </div>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from "firebase";
 
 export default {
-  name: 'Signin',
-  data () {
+  name: "Signin",
+  data() {
     return {
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: ""
+    };
   },
   methods: {
-    signIn: function () {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-      .then(
-        user => {
-          alert('ログイン成功!')
-          this.$router.push('/')
-        },
-        err => {
-          alert(err.message)
-        }
-      )
+    signIn: function() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            alert("ログイン成功!");
+            this.$router.push("/");
+          },
+          err => {
+            alert(err.message);
+          }
+        );
     },
     goSignUp: function() {
-      this.$router.push('/signup')
+      this.$router.push("/signup");
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .signin {
-    background: url(../../static/login.png);
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    text-align: center;
-    position: relative;
-  }
+.signin {
+  background: url(../../static/login.png);
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+}
 
-  img {
-    margin-bottom: 30px;
-  }
-  h2 {
-    margin-bottom: 50px;
-  }
+img {
+  margin-bottom: 30px;
+}
+h2 {
+  margin-bottom: 50px;
+}
 
-  .login-wrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    -webkit- transform: translateY(-50%) translateX(-50%);
-  }
+.login-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
 
-  input {
-    display: block;
-    width: 450px;
-    height: 40px;
-    margin-bottom: 45px;
-    background: #FFFFFF4D 0% 0% no-repeat padding-box;
-    border: none;
-    cursor: pointer;
-    margin: 30px auto;
-  }
+input {
+  display: block;
+  width: 450px;
+  height: 40px;
+  margin-bottom: 45px;
+  background: #ffffff4d 0% 0% no-repeat padding-box;
+  border: none;
+  cursor: pointer;
+  margin: 30px auto;
+}
 
-  input::placeholder {
-    color: white;
-    padding: 50px 0;
-    font-size: 0.9rem;
-  }
+input::placeholder {
+  color: white;
+  padding: 50px 0;
+  font-size: 0.9rem;
+}
 
-input[type="email"],input[type="password"]{
+input[type="email"],
+input[type="password"] {
   border-radius: 4px;
   outline: none;
   box-sizing: border-box;
@@ -103,7 +109,8 @@ input[type="email"],input[type="password"]{
   color: #fff;
 }
 
-input[type="email"],input[type="password"] {
+input[type="email"],
+input[type="password"] {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 #999;
 }
@@ -119,14 +126,14 @@ input[type="email"],input[type="password"] {
   padding: 4px 8px;
   color: #fff;
   transition: 0.3s;
-  font-size: 2.5rem
+  font-size: 2.5rem;
 }
 
-.inputWithIcon input[type="email"]:focus + .i{
+.inputWithIcon input[type="email"]:focus + .i {
   color: dodgerBlue;
 }
 
-.inputWithIcon input[type="password"]:focus + .i{
+.inputWithIcon input[type="password"]:focus + .i {
   color: dodgerBlue;
 }
 
@@ -149,17 +156,17 @@ button {
   transition: 0.3s;
 }
 
-button:hover{
+button:hover {
   color: dodgerBlue;
   border-color: dodgerBlue;
 }
 
-.border-line{
+.border-line {
   border-top: 1px solid #ffffff;
   width: 475px;
   display: inline-block;
   padding: 2px;
-  margin-top: 28px
+  margin-top: 28px;
 }
 </style>
 

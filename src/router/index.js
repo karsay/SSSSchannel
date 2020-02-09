@@ -11,7 +11,6 @@ import firebase from 'firebase'
 Vue.use(Router)
 
 let router = new Router({
-  // mode: 'history',
   routes: [
     {
       path: '*',
@@ -31,13 +30,12 @@ let router = new Router({
       path: '/',
       name: 'Main',
       component: Main,
-      // meta: { requiresAuth: true }, //実装時必ずtrueにすること！！！
+      meta: { requiresAuth: false }, //実装時必ずtrueにすること！！！
       children: [
         {
           path: '',
           name: 'Home',
           component: Home,
-          // meta: { requiresAuth: false }
         },
         {
           path: '/live',
