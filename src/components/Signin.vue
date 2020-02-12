@@ -58,7 +58,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .signin {
-  background: url(../../static/login.png);
+  background: url(../../static/login.jpg);
   width: 100vw;
   height: 100vh;
   background-size: cover;

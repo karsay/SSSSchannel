@@ -1,8 +1,8 @@
 <template>
   <div id="home">
-    <div id="jumbotron">
-      <div class="mov-wrap"></div>
-    </div>
+    <Jumbotron
+      :isActive="isSelect"
+    ></Jumbotron>
     <ul class="nav nav-pills">
       <li class="nav-item">
         <a href="#" class="nav-link active">上昇中</a>
@@ -16,6 +16,7 @@
         <ThumbCard
           v-for="thumbnail in thumbnails1"
           :key="thumbnail.id"
+          :id="thumbnail.id"
           :title="thumbnail.title"
           :subtitle="thumbnail.subtitle"
           :cardImg="thumbnail.cardImg"
@@ -24,6 +25,7 @@
           :liveText="thumbnail.liveText"
           :score="thumbnail.score"
           :lived="thumbnail.lived"
+          :noticeText="thumbnail.noticeText"
         >
         </ThumbCard>
       </div>
@@ -31,6 +33,7 @@
         <ThumbCard
           v-for="thumbnail in thumbnails2"
           :key="thumbnail.id"
+          :id="thumbnail.id"
           :title="thumbnail.title"
           :subtitle="thumbnail.subtitle"
           :cardImg="thumbnail.cardImg"
@@ -39,6 +42,7 @@
           :liveText="thumbnail.liveText"
           :score="thumbnail.score"
           :lived="thumbnail.lived"
+          :noticeText="thumbnail.noticeText"
         >
         </ThumbCard>
       </div>
@@ -72,20 +76,26 @@
         </li>
       </ul>
     </nav>
+    <!-- <Paginate></Paginate> -->
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import ThumbCard from "@/components/ThumbCard";
+import Jumbotron from "@/components/Jumbotron";
+// import Paginate from "@/components/Paginate";
 
 export default {
   name: "Home",
   components: {
-    ThumbCard
+    ThumbCard,
+    Jumbotron
+    // Paginate
   },
   data: function() {
     return {
+      isSelect: 1,
       items: [
         { message: "NPB" },
         { message: "海外サッカー" },
@@ -95,7 +105,7 @@ export default {
         { message: "アメフト" },
         { message: "テニス" },
         { message: "NHL" },
-        { message: "レース" }
+        { message: "MLB" }
       ],
       thumbnails1: [
         {
@@ -107,68 +117,73 @@ export default {
           logo2: '../../static/logos/vfl_logo.png',
           liveText: "ライブ",
           score: "１−０",
-          lived: true
+          lived: true,
         },
         {
           id: 2,
           title: "日本 vs 南アフリカ",
           subtitle: "ラグビーW杯 決勝トーナメント",
-          cardImg: '../../static/card2.png',
-          logo1: '../../static/logos/byr_logo.png',
-          logo2: '../../static/logos/vfl_logo.png',
+          cardImg: '../../static/card2.jpg',
+          logo1: '../../static/logos/japan.png',
+          logo2: '../../static/logos/africa.png',
           liveText: "ライブ",
-          score: "7−０",
-          lived: true
+          score: "０−７",
+          lived: true,
         },
         {
           id: 3,
-          title: "バイエルン ミュンヘン vs VfLヴォルフスブルク",
-          subtitle: "ブンデスリーガ第23節",
+          title: "ロジャー・フェデラー vs ノヴァク・ジョコビッチ",
+          subtitle: "ATPワールドツアー・ファイナル",
           cardImg: '../../static/card3.jpg',
-          logo1: '../../static/logos/byr_logo.png',
-          logo2: '../../static/logos/vfl_logo.png',
-          liveText: "ライブ",
-          score: "１−０",
-          lived: true
+          logo1: '',
+          logo2: '',
+          liveText: "",
+          score: "",
+          lived: false,
+          noticeText:"10月10日10:00試合開始"
         },
       ],
       thumbnails2: [
         {
           id: 4,
-          title: "バイエルン ミュンヘン vs VfLヴォルフスブルク",
-          subtitle: "ブンデスリーガ第23節",
-          cardImg: '../../static/card1.jpg',
-          logo1: '../../static/logos/byr_logo.png',
-          logo2: '../../static/logos/vfl_logo.png',
-          liveText: "ライブ",
-          score: "１−０",
-          lived: true
+          title: "横浜FC vs ヴィッセル神戸",
+          subtitle: "Jリーグ第23節",
+          cardImg: '../../static/card4.jpg',
+          logo1: '',
+          logo2: '',
+          liveText: "",
+          score: "",
+          lived: false,
+          noticeText:"10月11日18:00試合開始"
         },
         {
           id: 5,
-          title: "日本 vs 南アフリカ",
-          subtitle: "ラグビーW杯 決勝トーナメント",
-          cardImg: '../../static/card1.jpg',
-          logo1: '../../static/logos/byr_logo.png',
-          logo2: '../../static/logos/vfl_logo.png',
-          liveText: "ライブ",
-          score: "７−０",
-          lived: true
+          title: "ロサンゼルス レイカーズ vs ボストン セルティックス",
+          subtitle: "NBA FINAL",
+          cardImg: '../../static/card5.jpg',
+          logo1: '',
+          logo2: '',
+          liveText: "",
+          score: "",
+          lived: false,
+          noticeText:"10月13日9:00試合開始"
         },
         {
           id: 6,
-          title: "バイエルン ミュンヘン vs VfLヴォルフスブルク",
+          title: "ロサンゼルス エンゼルス vs シアトル マリナーズ",
           subtitle: "ブンデスリーガ第23節",
-          cardImg: '../../static/card1.jpg',
-          logo1: '../../static/logos/byr_logo.png',
-          logo2: '../../static/logos/vfl_logo.png',
-          liveText: "ライブ",
-          score: "１−０",
-          lived: true
+          cardImg: '../../static/card6.jpg',
+          logo1: '',
+          logo2: '',
+          liveText: "",
+          score: "",
+          lived: false,
+          noticeText:"10月14日12:00試合開始"
         },
       ]
     };
-  }
+  },
+
 };
 
 </script>
@@ -177,20 +192,6 @@ export default {
 #home {
   width: 90%;
   margin: 0 auto;
-}
-
-#jumbotron {
-  height: 576px;
-  margin: 90px auto 30px;
-  background: #fafafa;
-  border-radius: 8px;
-}
-
-.mov-wrap {
-  background: #afafaf;
-  width: 1024px;
-  height: 576px;
-  border-radius: 8px;
 }
 
 .nav-pills {
