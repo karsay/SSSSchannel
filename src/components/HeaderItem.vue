@@ -11,7 +11,7 @@
           <a>ホーム</a>
         </router-link>
         <router-link tag="li" id="live-nav" to="/live" exact>
-          <a>ライブ</a>
+          <a>掲示板</a>
         </router-link>
         <router-link tag="li" id="config-nav" to="/config" exact>
           <a>設定</a>
