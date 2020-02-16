@@ -7,6 +7,7 @@ import Home from '@/components/Home'
 import Live from '@/components/Live'
 import Config from '@/components/Config'
 import firebase from 'firebase'
+import store from '@/store';
 
 Vue.use(Router)
 

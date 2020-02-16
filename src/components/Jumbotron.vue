@@ -34,16 +34,13 @@ export default {
     return {
     }
   },
-  props: {
-    isActive: Intl,
-  },
   methods: {
     changeImg:function(){
-      return `../../static/card${this.isActive}.jpg`
+      return `../../static/card${this.$store.state.isActive}.jpg`
     },
     goLive:function(){
-      this.$router.push(`/live/${this.isActive}`);
-    }
+      this.$router.push(`/live/${this.$store.state.isActive}`);
+    },
   }
 }
 

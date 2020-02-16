@@ -1,8 +1,6 @@
 <template>
   <div id="home">
-    <Jumbotron
-      :isActive="isSelect"
-    ></Jumbotron>
+    <Jumbotron></Jumbotron>
     <ul class="nav nav-pills">
       <li class="nav-item">
         <a href="#" class="nav-link active">上昇中</a>
@@ -95,7 +93,6 @@ export default {
   },
   data: function() {
     return {
-      isSelect: 1,
       items: [
         { message: "NPB" },
         { message: "海外サッカー" },
@@ -183,7 +180,6 @@ export default {
       ]
     };
   },
-
 };
 
 </script>

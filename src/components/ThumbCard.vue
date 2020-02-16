@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <input type="radio" name="selected" :id="id" class="selected" v-model="isActive" :value="id"/>
+    <input type="radio" name="selected" :id="id" class="selected" v-model="this.$store.state.isActive" :value="id"/>
     <label :for="id">
       <img class="card-img-top" :src="cardImg" alt="Card image cap" height="300px" />
       <div class="card-img-overlay" @click="isSelect()">
@@ -39,14 +39,13 @@ export default {
   },
   data: function() {
     return {
-      isActive: 1
     };
   },
   methods: {
     isSelect: function() {
-      this.isActive = this.id
-      this.$parent.isSelect = this.isActive
-      // this.isActive = num;
+      this.$store.commit('updateIsActive', {
+        isActive: this.id,
+      })
     }
   }
 };

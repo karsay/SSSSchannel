@@ -7,13 +7,11 @@
     </router-link>
     <nav id="header-nav">
       <ul>
-        <router-link tag="li" id="home-nav" to="/" exact>
+        <router-link tag="li" id="home-nav" :to="{ name: 'Home'}" exact>
           <a>ホーム</a>
         </router-link>
-        <router-link tag="li" id="live-nav" to="/live" exact>
-          <a>掲示板</a>
-        </router-link>
-        <router-link tag="li" id="config-nav" to="/config" exact>
+        <li @click="goLive" :class="{active: this.$route.path == `/live/${this.$store.state.isActive}`}"><a>掲示板</a></li>
+        <router-link tag="li" id="config-nav" :to="{ name: 'Config'}" exact>
           <a>設定</a>
         </router-link>
         <li @click="signOut">ログアウト</li>
@@ -24,8 +22,13 @@
 
 <script>
 import firebase from "firebase";
+import store from '@/store';
 
 export default {
+  data:function(){
+    return {
+    }
+  },
   methods: {
     signOut: function() {
       firebase
@@ -33,8 +36,20 @@ export default {
         .signOut()
         .then(() => {
           this.$router.push("/signin");
-        });
+      });
+    },
+    goLive: function(){
+      this.$router.push(`/live/${this.$store.state.isActive}`);
     }
+  },
+  computed: {
+    isActive() {
+      return this.$store.state.isActive;
+    }
+  },
+  watch: {
+    // isActive: function(){
+    // }
   }
 };
 </script>
@@ -94,6 +109,12 @@ li a#active {
 }
 
 .router-link-active {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  color: #5cb0c5;
+}
+
+.active{
   font-weight: bolder;
   font-size: 1.2rem;
   color: #5cb0c5;

@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
@@ -12,6 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
+
+import store from './store'
+
+Vue.use(Vuex)
 
 library.add(fas, fab, far)
 
@@ -35,6 +40,7 @@ firebase.initializeApp(firebaseConfig);
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })
