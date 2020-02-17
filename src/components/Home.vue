@@ -74,7 +74,6 @@
         </li>
       </ul>
     </nav>
-    <!-- <Paginate></Paginate> -->
   </div>
 </template>
 
@@ -106,10 +105,10 @@ export default {
       ],
       thumbnails1: [
         {
-          id: 1,
+          id: 0,
           title: "バイエルン ミュンヘン vs VfLヴォルフスブルク",
           subtitle: "ブンデスリーガ第23節",
-          cardImg: '../../static/card1.jpg',
+          cardImg: '../../static/card0.jpg',
           logo1: '../../static/logos/byr_logo.png',
           logo2: '../../static/logos/vfl_logo.png',
           liveText: "ライブ",
@@ -117,10 +116,10 @@ export default {
           lived: true,
         },
         {
-          id: 2,
+          id: 1,
           title: "日本 vs 南アフリカ",
           subtitle: "ラグビーW杯 決勝トーナメント",
-          cardImg: '../../static/card2.jpg',
+          cardImg: '../../static/card1.jpg',
           logo1: '../../static/logos/japan.png',
           logo2: '../../static/logos/africa.png',
           liveText: "ライブ",
@@ -128,10 +127,10 @@ export default {
           lived: true,
         },
         {
-          id: 3,
+          id: 2,
           title: "ロジャー・フェデラー vs ノヴァク・ジョコビッチ",
           subtitle: "ATPワールドツアー・ファイナル",
-          cardImg: '../../static/card3.jpg',
+          cardImg: '../../static/card2.jpg',
           logo1: '',
           logo2: '',
           liveText: "",
@@ -142,10 +141,10 @@ export default {
       ],
       thumbnails2: [
         {
-          id: 4,
+          id: 3,
           title: "横浜FC vs ヴィッセル神戸",
           subtitle: "Jリーグ第23節",
-          cardImg: '../../static/card4.jpg',
+          cardImg: '../../static/card3.jpg',
           logo1: '',
           logo2: '',
           liveText: "",
@@ -154,10 +153,10 @@ export default {
           noticeText:"10月11日18:00試合開始"
         },
         {
-          id: 5,
+          id: 4,
           title: "ロサンゼルス レイカーズ vs ボストン セルティックス",
           subtitle: "NBA FINAL",
-          cardImg: '../../static/card5.jpg',
+          cardImg: '../../static/card4.jpg',
           logo1: '',
           logo2: '',
           liveText: "",
@@ -166,10 +165,10 @@ export default {
           noticeText:"10月13日9:00試合開始"
         },
         {
-          id: 6,
+          id: 5,
           title: "ロサンゼルス エンゼルス vs シアトル マリナーズ",
           subtitle: "ブンデスリーガ第23節",
-          cardImg: '../../static/card6.jpg',
+          cardImg: '../../static/card5.jpg',
           logo1: '',
           logo2: '',
           liveText: "",
@@ -186,7 +185,7 @@ export default {
 
 <style scoped>
 #home {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 

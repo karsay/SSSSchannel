@@ -8,21 +8,17 @@
         <div class="title-icon" />
         掲示板一覧
       </div>
-      <ul>
-        <li class="bbs-box" @click="goLive()">
+      <ul class="bbs-ul">
+        <li class="bbs-box" v-for="bbs in bbss" v-bind:key="bbs.bbsId" @click="goLive(bbs.bbsId)">
           <div class="bbs-img-wrap">
-            <img src="../../static/logos/byr_logo.png" alt="bbs-img" width="110px">
+            <img :src="bbs.bbsImg" alt="bbs-img" width="110px">
           </div>
           <div class="bbs-content">
-            <div class="bbs-title">バイエルン対ヴォルフスブルグ実況板</div>
-            <div class="bbs-comment-num">222コメント</div>
+            <div class="bbs-title">{{bbs.title}}</div>
+            <div class="bbs-comment-num">{{bbs.commentCnt}}コメント</div>
             <div class="jump-comment">掲示板へ</div>
           </div>
         </li>
-        <li class="bbs-box"></li>
-        <li class="bbs-box"></li>
-        <li class="bbs-box"></li>
-        <li class="bbs-box"></li>
       </ul>
     </div>
   </div>
@@ -32,15 +28,22 @@
 export default {
   data: function() {
     return {
+      bbss: bbss()
     }
   },
   methods: {
-    changeImg:function(){
+    changeImg:function() {
       return `../../static/card${this.$store.state.isActive}.jpg`
     },
-    goLive:function(){
+    goLive:function(id) {
+      alert(id)
       this.$router.push(`/live/${this.$store.state.isActive}`);
-    },
+    }
+  },
+  computed: {
+    bbss(){
+      return this.$store.state.bbss[this.$store.state.isActive]
+    }
   }
 }
 
@@ -55,7 +58,6 @@ export default {
 }
 
 .mov-wrap {
-  /* background: #afafaf; */
   width: 1024px;
   height: 576px;
   border-radius: 8px;
@@ -71,12 +73,17 @@ export default {
   object-fit: cover;
 }
 
+.bbs-ul{
+  overflow-y: scroll;
+  height: 500px;
+}
+
 .bbs-wrap{
-  width: 28vw;
+  width: 33vw;
   /* background: #efefef; */
   position: absolute;
   top: 100px;
-  right: 100px;
+  right: 70px;
   color: #404040;
 }
 
@@ -108,7 +115,7 @@ export default {
 }
 
 .bbs-img-wrap {
-  width: 110px;
+  width: 7vw;
   height: 80px;
   overflow: hidden;
   position: relative;
@@ -126,6 +133,7 @@ export default {
 }
 
 .bbs-content{
+  width: 22vw;
   display: inline-block;
   margin-left: 5px;
 }
@@ -133,6 +141,8 @@ export default {
   font-weight: bold;
   position: relative;
   bottom: 20px;
+white-space: nowrap;
+overflow: hidden;
 }
 
 .bbs-comment-num{

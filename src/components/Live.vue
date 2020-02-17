@@ -1,6 +1,9 @@
 <template>
   <div id="live">
-    <div id="main-wrap"></div>
+    <div id="main-wrap">
+      <div id="mov-wrap">
+      </div>
+    </div>
     <div id="bbs-wrap"></div>
   </div>
 </template>
@@ -13,7 +16,7 @@ export default {
 
 <style scoped>
 #live {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   min-height: 1000px;
 }
@@ -29,7 +32,13 @@ export default {
 #bbs-wrap {
   background: #fafafa;
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   border-radius: 8px;
+}
+
+#mov-wrap{
+  height: 486px;
+  width: 864px;
+  background: #afafaf;
 }
 </style>

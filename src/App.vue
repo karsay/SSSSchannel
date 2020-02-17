@@ -8,6 +8,7 @@
 import 'normalize.css'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'App',
