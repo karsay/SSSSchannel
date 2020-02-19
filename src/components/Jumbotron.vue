@@ -36,8 +36,8 @@ export default {
       return `../../static/card${this.$store.state.isActive}.jpg`
     },
     goLive:function(id) {
-      alert(id)
-      this.$router.push(`/live/${this.$store.state.isActive}`);
+      this.$store.state.bbsId = id;
+      this.$router.push(`/live/${this.$store.state.isActive}/${id}`);
     }
   },
   computed: {

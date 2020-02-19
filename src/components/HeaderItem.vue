@@ -10,7 +10,7 @@
         <router-link tag="li" id="home-nav" :to="{ name: 'Home'}" exact>
           <a>ホーム</a>
         </router-link>
-        <li @click="goLive" :class="{active: this.$route.path == `/live/${this.$store.state.isActive}`}"><a>掲示板</a></li>
+        <li @click="goLive" :class="{active: this.$route.path == `/live/${this.$store.state.isActive}/${this.$store.state.activeBbs}`}"><a>掲示板</a></li>
         <router-link tag="li" id="config-nav" :to="{ name: 'Config'}" exact>
           <a>設定</a>
         </router-link>
@@ -39,7 +39,7 @@ export default {
       });
     },
     goLive: function(){
-      this.$router.push(`/live/${this.$store.state.isActive}`);
+      this.$router.push(`/live/${this.$store.state.isActive}/${this.$store.state.activeBbs}`);
     }
   },
   computed: {

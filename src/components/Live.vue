@@ -1,16 +1,44 @@
 <template>
   <div id="live">
-    <div id="main-wrap">
-      <div id="mov-wrap">
-      </div>
+    <div id="main-wrap" @click="test">
+      <LiveMovie></LiveMovie>
+      <LiveBbs></LiveBbs>
+      <LiveHeatgauge></LiveHeatgauge>
+      <LiveHighlight></LiveHighlight>
     </div>
-    <div id="bbs-wrap"></div>
+    <div id="bbss-wrap">
+    </div>
   </div>
 </template>
 
 <script>
+
+import LiveMovie from "@/components/LiveMovie";
+import LiveBbs from "@/components/LiveBbs";
+import LiveHeatgauge from "@/components/Liveheatgauge";
+import LiveHighlight from "@/components/LiveHighlight";
+
 export default {
-  name: 'live'
+  name: 'live',
+  components:{
+    LiveMovie,
+    LiveBbs,
+    LiveHeatgauge,
+    LiveHighlight
+  },
+  data: function() {
+    return {
+      isActive:this.$route.params['isActive'],
+      activeBbs:this.$route.params['bbsId'],
+      // activeBbs:this.$route.params['bbsId'],
+    }
+  },
+  methods: {
+    // test:function(){
+    //   console.log(this.isActive);
+    //   console.log(this.activeBbs);
+    // }
+  },
 }
 </script>
 
@@ -24,9 +52,11 @@ export default {
 #main-wrap {
   background: #fafafa;
   width: 100%;
-  height: 85vh;
+  height: 88vh;
   margin: 90px 0 30px ;
   border-radius: 8px;
+  padding: 10px;
+  position: relative;
 }
 
 #bbs-wrap {
@@ -34,11 +64,19 @@ export default {
   width: 100%;
   height: 85vh;
   border-radius: 8px;
+
 }
 
-#mov-wrap{
-  height: 486px;
-  width: 864px;
-  background: #afafaf;
+#bbss-wrap {
+  background: #fafafa;
+  width: 100%;
+  height: 85vh;
+  margin: 30px 0;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
 }
+
+
+
 </style>

@@ -39,7 +39,7 @@ let router = new Router({
           component: Home,
         },
         {
-          path: '/live/:id',
+          path: '/live/:isActive/:bbsId',
           name: 'Live',
           component: Live,
         },
