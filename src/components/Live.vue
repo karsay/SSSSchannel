@@ -1,7 +1,9 @@
 <template>
   <div id="live">
-    <div id="main-wrap" @click="test">
-      <LiveMovie></LiveMovie>
+    <div id="main-wrap">
+      <LiveMovie
+        :isActive= isActive
+      ></LiveMovie>
       <LiveBbs></LiveBbs>
       <LiveHeatgauge></LiveHeatgauge>
       <LiveHighlight></LiveHighlight>

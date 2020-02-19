@@ -25,7 +25,7 @@ const store = new Vuex.Store({
           bbsId:2,
           title: 'レヴァンドフスキのこのゴールwwwwwwww',
           commentCnt: '31',
-          bbsImg: '../../static/bbsImgs/card1.jpg',
+          bbsImg: '../../static/bbsImgs/card0.jpg',
         },
         {
           bbsId:3,
