@@ -1,13 +1,13 @@
 <template>
   <div class="form-area">
     <ul class="tabs">
-      <li v-on:click="change('1')" v-bind:class="{'active': selectTeam === '1'}"><img :src="teamImgPath1" width="40px" height="30px"></li>
-      <li v-on:click="change('2')" v-bind:class="{'active': selectTeam === '2'}"><img :src="teamImgPath2" width="40px" height="30px"></li>
-      <li v-on:click="change('3')" v-bind:class="{'active': selectTeam === '3'}"><img :src="teamImgPath1" width="40px" height="30px"></li>
+      <li v-on:click="change('1')" v-bind:class="{'active': selectTeam === '1'}"><img :src="teamImgPath1" width="50px" height="40px"></li>
+      <li v-on:click="change('2')" v-bind:class="{'active': selectTeam === '2'}"><img :src="teamImgPath2" width="50px" height="40px"></li>
+      <li v-on:click="change('3')" v-bind:class="{'active': selectTeam === '3'}"><img src="../../static/logos/no-logo.png" width="50px" height="40px"></li>
     </ul>
     <!-- 名前 : <input v-model="name"><br /> -->
     <textarea v-model="message" cols="10" rows="4"></textarea>
-    <button v-on:click="doAdd">書き込む</button>
+    <button v-on:click="doAdd">コメント</button>
   </div>
 </template>
 
@@ -72,8 +72,26 @@ export default {
 }
 textarea {
   width: 500px;
+  padding: 0 5px;
+  resize: none
 }
 img {
   object-fit: cover
 }
+
+button {
+  border: 3px solid #5cb0c5;
+  border-radius: 22px;
+  padding: 10px 50px;
+  transition: 0.3s;
+  position: relative;
+  bottom: 40px;
+  left: 10px;
+}
+
+button:hover {
+  background: #5cb0c5;
+  color: white;
+}
+
 </style>

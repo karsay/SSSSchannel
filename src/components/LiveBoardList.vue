@@ -6,7 +6,7 @@
     <div class="name">
       {{name}}
     </div>
-    <img :src="img" width="25px" height="20px">
+    <img :src="img" width="25px" height="25px">
     <!-- {{date}} -->
     <div class="message">
     {{message}}
@@ -51,7 +51,9 @@ li {
 }
 img{
   object-fit: cover;
-  margin: 0px 10px 5px;
+  position: relative;
+  bottom: 5px;
+  left: 5px;
 }
 .message{
   /* margin-left: 30px; */
