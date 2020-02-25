@@ -4,16 +4,17 @@
       <div class="title-icon" />
       ヒートゲージ
       <wj-linear-gauge
-        :is-read-only="false"
+        :is-read-only="true"
         :value="gaugeValue"
-        :value-changed="onValueChanged"
-        :thumb-size="30"
         class="wijmo-control"
       >
-      <wj-range wj-property="pointer" color="red"></wj-range>
+      <img src="../assets/mask.png">
+      <wj-range wj-property="pointer" class="range" color="red"></wj-range>
       </wj-linear-gauge>
+      <!-- <Chart></Chart> -->
     </div>
   </div>
+
 </template>
 
 <script>
@@ -21,22 +22,27 @@
 import 'wijmo/wijmo.vue2.grid';
 import 'wijmo/wijmo.vue2.gauge';
 import 'wijmo/cultures/wijmo.culture.ja.js';
-import 'wijmo/styles/wijmo.css';
+import './wijmo.css';
+// import Chart from './Chart';
 
 export default {
   data: function(){
     return{
-      gaugeValue: 30
+      // gaugeValue: this.$store.state.gaugeValue
     }
   },
-  methods: {
+  computed: {
+    gaugeValue() {
+      return this.$store.state.gaugeValue
+    }
   }
 
 }
 </script>
 
 <style scoped>
-
+/* @import "https://cdn.grapecity.com/wijmo/5.latest/styles/wijmo.min.css"; */
+@import "wijmo.min.css";
 #heatgauge-wrap {
   /* background: #afafaf; */
   width: 864px;
@@ -63,5 +69,24 @@ export default {
   border-radius: 50%;
   margin-bottom: 2px;
 }
+.wj-gauge {
+  width: 80%;
+  margin: 0 auto;
+}
+.wj-linear-gauge {
+  position: relative;
+}
+img {
+  width: 80%;
+  height: 50%;
+  position: absolute;
+  bottom: 15px;
+
+}
+
+.wijmo-control {
+  height: 30px;
+}
+
 
 </style>

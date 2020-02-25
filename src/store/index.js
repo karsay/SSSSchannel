@@ -7,6 +7,8 @@ const store = new Vuex.Store({
   state: {
     isActive:0,
     activeBbs:0,
+    gaugeValue: 50,
+    userName: 'testUser',
     bbss: [
       [
         {
@@ -14,42 +16,63 @@ const store = new Vuex.Store({
           title: 'バイエルン対ヴォルフスブルグ実況板',
           commentCnt: '226',
           bbsImg: '../../static/bbsImgs/byr_logo.png',
+          tags: ['海外サッカー', 'バイエルン', 'ヴォルフスブルグ', '実況'],
+          teamImg1: '../../static/logos/byr_logo.png',
+          teamImg2: '../../static/logos/vfl_logo.png'
         },
         {
           bbsId:1,
           title: '【緊急速報】バイエルン・ミュンヘン優勝！！！！',
           commentCnt: '26',
           bbsImg: '../../static/bbsImgs/byr_logo.png',
+          tags: ['海外サッカー', 'バイエルン'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         },
         {
           bbsId:2,
           title: 'レヴァンドフスキのこのゴールwwwwwwww',
           commentCnt: '31',
           bbsImg: '../../static/bbsImgs/card0.jpg',
+          tags: ['海外サッカー', 'バイエルン', 'ヴォルフスブルグ'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         },
         {
           bbsId:3,
           title: 'ニートだけど1年で早慶目指すわ',
           commentCnt: '1',
           bbsImg: '../../static/bbsImgs/noimage.png',
+          tags: ['雑談', 'バイエルン'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         },
         {
           bbsId:4,
           title: 'バイエルン、シャルケGKニューベルの来夏加入を発表…移籍金は発生せず',
           commentCnt: '63',
           bbsImg: '../../static/bbsImgs/nyuber.jpeg',
+          tags: ['海外サッカー', 'バイエルン', 'シャルケ', '移籍'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         },
         {
           bbsId:5,
           title: 'CLの組み合わせ発表wwwwwwww',
           commentCnt: '104',
           bbsImg: '../../static/bbsImgs/cl.jpg',
+          tags: ['海外サッカー', 'バイエルン', 'CL'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         },
         {
           bbsId:6,
           title: 'ドルトムント絶好調、ヴォルフスブルクに10戦無敗で首位を守る　公式戦15試合で無敗クラブ記録を更新',
           commentCnt: '31',
           bbsImg: '../../static/bbsImgs/dort.jpg',
+          tags: ['海外サッカー', 'ドルトムント', 'ヴォルフスブルグ', 'ブンデスリーガ'],
+          teamImg1: '../../static/bbsImgs/byr_logo.png',
+          teamImg2: '../../static/bbsImgs/vfl_logo.png'
         }
       ],
       [

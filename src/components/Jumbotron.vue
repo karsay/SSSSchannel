@@ -90,7 +90,8 @@ export default {
 .bbss-name{
   font-size: 20px;
   color: #404040;
-  margin: 10px 30px
+  margin: 10px 30px;
+  font-weight: bold;
 }
 
 .title-icon {

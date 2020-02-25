@@ -33,7 +33,7 @@ export default {
     },
    methods: {
     clickCallback: function (pageNum) {
-       this.currentPage = Number(pageNum);
+      this.currentPage = Number(pageNum);
     }
    },
    computed: {

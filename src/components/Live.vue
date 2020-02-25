@@ -2,9 +2,12 @@
   <div id="live">
     <div id="main-wrap">
       <LiveMovie
-        :isActive= isActive
+        :isActive = isActive
       ></LiveMovie>
-      <LiveBbs></LiveBbs>
+      <LiveBbs
+        :isActive = isActive
+        :isActiveBbs = activeBbs
+      ></LiveBbs>
       <LiveHeatgauge></LiveHeatgauge>
       <LiveHighlight></LiveHighlight>
     </div>
@@ -36,10 +39,6 @@ export default {
     }
   },
   methods: {
-    // test:function(){
-    //   console.log(this.isActive);
-    //   console.log(this.activeBbs);
-    // }
   },
 }
 </script>

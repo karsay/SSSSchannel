@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-@import "https://cdn.grapecity.com/wijmo/5.latest/styles/wijmo.min.css";
+
 
 #app {
   -webkit-font-smoothing: antialiased;
@@ -36,5 +36,4 @@ body > div > a:last-child {
   display: none;
 
 }
-
 </style>
