@@ -1,9 +1,9 @@
 <template>
   <div class="form-area">
     <ul class="tabs">
-      <li v-on:click="change('1')" v-bind:class="{'active': selectTeam === '1'}"><img :src="teamImgPath1" width="50px" height="40px"></li>
-      <li v-on:click="change('2')" v-bind:class="{'active': selectTeam === '2'}"><img :src="teamImgPath2" width="50px" height="40px"></li>
-      <li v-on:click="change('3')" v-bind:class="{'active': selectTeam === '3'}"><img src="../../static/logos/no-logo.png" width="50px" height="40px"></li>
+      <li v-on:click="change('0')" v-bind:class="{'active': selectTeam === '0'}"><img :src="selectTeamImg[0]" width="50px" height="40px"></li>
+      <li v-on:click="change('1')" v-bind:class="{'active': selectTeam === '1'}"><img :src="selectTeamImg[1]" width="50px" height="40px"></li>
+      <li v-on:click="change('2')" v-bind:class="{'active': selectTeam === '2'}"><img :src="selectTeamImg[2]" width="50px" height="40px" class="no-logo"></li>
     </ul>
     <!-- 名前 : <input v-model="name"><br /> -->
     <textarea v-model="message" cols="10" rows="4"></textarea>
@@ -12,19 +12,31 @@
 </template>
 
 <script>
+import {db} from '../main.js'
+
 export default {
   data: function() {
     return {
       message: "",
-      selectTeam: '1',
-      userName: this.$store.state.userName,
-      teamImgPath1: this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamImg1,
-      teamImgPath2: this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamImg2,
+      userName: this.$store.state.l_userName,
+      selectTeamImg: [
+        this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamImg1,
+        this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamImg2,
+        this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamImg3
+        ],
+      selectTeam: '0',
     };
   },
   methods: {
     doAdd: function() {
-      this.$emit("input", this.userName, this.message);
+      const now = new Date()
+      db.collection(`game${this.$store.state.isActive}-${this.$store.state.activeBbs}`).add({
+        date: now,
+        message: this.message,
+        name: this.userName,
+        team: this.selectTeamImg[this.selectTeam],
+        team_color: this.$store.state.bbss[this.$store.state.isActive][this.$store.state.activeBbs].teamColor[this.selectTeam]
+      })
     },
     change: function(num) {
       this.selectTeam = num;
@@ -76,7 +88,11 @@ textarea {
   resize: none
 }
 img {
-  object-fit: cover
+  object-fit: cover;
+}
+
+.no-logo {
+  object-fit: contain;
 }
 
 button {

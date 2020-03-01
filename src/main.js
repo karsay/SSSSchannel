@@ -6,6 +6,9 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import { firestorePlugin } from 'vuefire'
+import store from './store'
+import 'firebase/firestore'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -14,9 +17,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-import store from './store'
-
 Vue.use(Vuex)
+Vue.use(firestorePlugin)
 
 library.add(fas, fab, far)
 
@@ -35,7 +37,9 @@ var firebaseConfig = {
   messagingSenderId: "416642219145",
   appId: "1:416642219145:web:4fb44b73e681e086459a58"
 };
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export const db = firebaseApp.firestore();
 
 new Vue({
   el: '#app',

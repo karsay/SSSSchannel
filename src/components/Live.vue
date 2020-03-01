@@ -11,8 +11,10 @@
       <LiveHeatgauge></LiveHeatgauge>
       <LiveHighlight></LiveHighlight>
     </div>
-    <div id="bbss-wrap">
-    </div>
+    <LiveBbsList
+      :isActive = isActive
+      :isActiveBbs = activeBbs>
+    </LiveBbsList>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ import LiveMovie from "@/components/LiveMovie";
 import LiveBbs from "@/components/LiveBbs";
 import LiveHeatgauge from "@/components/Liveheatgauge";
 import LiveHighlight from "@/components/LiveHighlight";
+import LiveBbsList from "@/components/LiveBbsList"
 
 export default {
   name: 'live',
@@ -29,7 +32,8 @@ export default {
     LiveMovie,
     LiveBbs,
     LiveHeatgauge,
-    LiveHighlight
+    LiveHighlight,
+    LiveBbsList
   },
   data: function() {
     return {
@@ -59,25 +63,4 @@ export default {
   padding: 10px;
   position: relative;
 }
-
-#bbs-wrap {
-  background: #fafafa;
-  width: 100%;
-  height: 85vh;
-  border-radius: 8px;
-
-}
-
-#bbss-wrap {
-  background: #fafafa;
-  width: 100%;
-  height: 85vh;
-  margin: 30px 0;
-  border-radius: 8px;
-  padding: 10px;
-  position: relative;
-}
-
-
-
 </style>

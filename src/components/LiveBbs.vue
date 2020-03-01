@@ -13,29 +13,37 @@
       :name="list.name"
       :message="list.message"
       :date="list.date"
-      :num="1"
-      :team="'byr_logo'"
+      :num="list.num"
+      :team="list.team"
+      :img="list.team"
+      :selectTeamColor="list.team_color"
       v-bind:key="list.index">
      </boardlist>
    </ul>
-   <boardform v-on:input="doAdd"></boardform>
+    <boardform></boardform>
   </div>
 </template>
 
 <script>
 import boardform from '@/components/LiveBoardForm'
 import boardlist from '@/components/LiveBoardList'
+import {db} from '../main.js'
 
 export default {
   data: function() {
-    return{
+    return {
       title:this.$store.state.bbss[this.isActive][this.isActiveBbs].title,
       name:'testUser',
       message: '',
       date: '',
-      lists: [
-      ],
+      lists: [],
       tags: this.$store.state.bbss[this.isActive][this.isActiveBbs].tags
+    }
+  },
+  firestore() {
+    return {
+      // lists: db.collection(this.$store.state.l_collection).orderBy('date'),
+      lists: db.collection(`game${this.isActive}-${this.isActiveBbs}`).orderBy('date')
     }
   },
   props: {
@@ -43,14 +51,6 @@ export default {
     isActiveBbs: Intl
   },
   methods: {
-    doAdd: function(name, message){
-      var now = new Date();
-      this.lists.push({
-        name: name,
-        message: message,
-        date: now.getMonth()+1 + '-' + now.getDate() + ' ' + now.getHours() + ':' + now.getMinutes()
-      })
-    },
     scrollToEnd() {
       this.$nextTick(() => {
         const chatLog = this.$refs.target
@@ -68,12 +68,13 @@ export default {
   }
 }
 
+
 </script>
 
 <style scoped>
 #bbs-wrap{
   width: 700px;
-  height: 760px;
+  height: 800px;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -120,7 +121,7 @@ p{
 
 .lists{
   /* background: antiquewhite; */
-  height: 500px;
+  height: 540px;
   overflow-y: scroll;
   padding-right: 40px;
 

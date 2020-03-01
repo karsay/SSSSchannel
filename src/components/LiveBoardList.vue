@@ -1,12 +1,9 @@
 <template>
   <li ref="target">
-    <div class="num">
-      {{num}}
-    </div>
-    <div class="name">
+    <div class="name" :style="teamColor">
       {{name}}
     </div>
-    <img :src="img" width="25px" height="25px">
+    <img :src="teamImg" width="25px" height="25px">
     <!-- {{date}} -->
     <div class="message">
     {{message}}
@@ -16,21 +13,26 @@
 </template>
 
 <script>
+import { DateTime, Color } from 'wijmo/wijmo'
 export default {
   // el:'board-list',
   props: {
-    'name': String,
-    'message': String,
-    'date':String,
-    'team': String,
-    'num': Intl,
+    name: String,
+    message: String,
+    // 'date': Date,
+    team: String,
+    num: Intl,
+    img: String,
+    selectTeamColor: String
   },
   data: function(){
     return {
-      img: `../../static/logos/${this.team}.png`
+      teamImg: this.img,
+      teamColor: {
+        color: this.selectTeamColor
+      }
     }
   },
-
 }
 </script>
 
@@ -40,14 +42,12 @@ li {
   background: #fafafa;
   border-bottom: 1px solid #d0d0d0;
   padding: 15px 5px;
-  
 }
 .num{
   display: inline;
 }
 .name{
   display: inline;
-  margin-left: 10px;
 }
 img{
   object-fit: cover;
@@ -57,9 +57,10 @@ img{
 }
 .message{
   /* margin-left: 30px; */
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-top: 5px
+  margin-top: 5px;
+  margin-left: 5px
 }
 .res {
   color: blue;
